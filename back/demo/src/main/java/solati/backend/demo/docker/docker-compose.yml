@@ -1,16 +1,18 @@
 services:
   db:
-    image: postgres:18
-    restart: always
+    image: postgres:18 #Postgres imagen oficial
+    restart: always #Reinicia el contenedor si se detiene
     environment:
-      POSTGRES_DB: solati_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
+      #NOTICA: En producción, estos valores deben protegerse mediante variables de entorno seguras.
+      #docker-compose up -d, docker-compose down
+      POSTGRES_DB: solati_db #Nombre de la base de datos
+      POSTGRES_USER: postgres #Usuario
+      POSTGRES_PASSWORD: 1234 #Efecto de test (no subir credenciales)
     ports:
       - "5432:5432"
-
+#UI para el manejo de la BASE DE DATOS
   adminer:
-    image: adminer
+    image: adminer #Imagen oficial del panel de adminoistración de bd
     restart: always
     ports:
-      - "8081:8080"
+      - "8081:8080" #puerto de UI para manejo de bd

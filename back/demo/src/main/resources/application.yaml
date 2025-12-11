@@ -1,17 +1,29 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/solati_db
-    username: postgres
-    password: 1234
-
+    url: jdbc:postgresql://localhost:5432/solati_db #URL de postgres
+    username: postgres #uSER
+    password: 1234 #Contraseña (MALA PRACTICA QUEMAR VALORES IMPORTANTES DENTRO DE UN ARCHIVO DE CONFIGURACIÓN, PERO, PARA
+    #PARA EFECTOS DE PRÁCTICA
+#    url: ${DB_URL:jdbc:postgresql://localhost:5432/solati_db}
+  #    username: ${DB_USERNAME:postgres}
+  #    password: ${DB_PASSWORD:1234}
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: update #Crea o actualiza tablas según las entidades
+    show-sql: true #Muestra las consultas SQL en consola (útil en dev para debug)
     properties:
       hibernate:
-        format_sql: true
+        format_sql: true #Formatea las consultas SQL para leerlas mejor
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
-  port: 8080
+  port: 8080 #Puerto donde levanta el backend
+
+
+
+  #USAR PROFILES:
+      #application.yml GENERAL
+      #application.yml DESARROLLO
+      #application-prod.yaml PRODUCCIÓN
+#AWS injects those variables into the runtime environment.
+#Kubernetes injects the variables into the container.Spring Boot reads them.
