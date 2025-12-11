@@ -12,8 +12,8 @@ import solati.backend.demo.service.TaskService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/tasks")
-@CrossOrigin(origins = "http://localhost:4200") // Angular dev
+@RequestMapping("/api/task")
+@CrossOrigin(origins = "http://127.0.0.1:4200/")
 public class TaskController {
 
     private final TaskService service;

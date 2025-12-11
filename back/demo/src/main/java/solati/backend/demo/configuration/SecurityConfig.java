@@ -17,9 +17,27 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import solati.backend.demo.security.JwtAuthFilter;
 
-@Configuration
+
+/*@Configuration
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(csrf -> csrf.disable())
+                .cors(Customizer.withDefaults())
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()
+                );
+        return http.build();
+    }
+}
+
+ */
+
+
+/*Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
 
@@ -44,14 +62,14 @@ public class SecurityConfig {
             PasswordEncoder passwordEncoder
     ) {
         DaoAuthenticationProvider provider =
-                new DaoAuthenticationProvider(userDetailsService); // ✅ Security 7
+                new DaoAuthenticationProvider(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder);
         return provider;
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
-            throws Exception {
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 
@@ -59,7 +77,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
             AuthenticationProvider authenticationProvider,
-            JwtAuthFilter jwtAuthFilter          // 👈 inject filter *here*
+            JwtAuthFilter jwtAuthFilter
     ) throws Exception {
 
         http
@@ -81,4 +99,5 @@ public class SecurityConfig {
 
         return http.build();
     }
-}
+
+}*/
