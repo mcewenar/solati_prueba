@@ -3,11 +3,23 @@
 <head>
   <meta charset="utf-8">
   <title>SolatiTaskFront</title>
+  <!--
+    <base href="/"> define la ruta base de la aplicación.
+    Es fundamental para que Angular pueda resolver correctamente
+    las rutas internas del SPA (Single Page Application).
+  -->
   <base href="/">
+  <!--Responsive-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!--ícono-->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+    <!--
+    Angular reemplaza este selector con el contenido del
+    componente raíz (<app-root>) cuando arranca la aplicación.
+    Este es el punto de entrada del frontend.
+  -->
   <app-root></app-root>
 </body>
 </html>

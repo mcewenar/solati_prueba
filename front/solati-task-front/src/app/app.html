@@ -1,16 +1,17 @@
-
+<!--DIV PADRE-->
 <div class="min-h-screen bg-slate-100 flex items-center justify-center">
   <!-- LOGIN -->
+   <!-- MUESTRA SI EL LOGIN ES VERDADERO-->
   <div *ngIf="!loggedIn" class="w-full max-w-sm bg-white rounded-2xl shadow-xl p-8">
-    <h1 class="text-xl font-bold text-slate-900 mb-6">
-      Solati Task – Login
+    <h1 class="text-xl font-bold text-slate-900 mb-6">Solati Task – Login
     </h1>
-
+    <!--Botón para loguearse y aplicar el método login-->
     <form (ngSubmit)="login()" class="space-y-4">
       <div>
         <label class="block text-sm font-medium text-slate-700 mb-1">
           Username
         </label>
+        <!--Lo que se escribe se agrega en username variable -> Two way binding-->
         <input
           type="text"
           name="username"
@@ -25,26 +26,22 @@
         <label class="block text-sm font-medium text-slate-700 mb-1">
           Password
         </label>
-        <input
-          type="password"
-          name="password"
+        <input type="password" name="password"
           [(ngModel)]="password"
           class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm
                  focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
           placeholder="password"
         />
       </div>
-
+      <!--Si se proudce un error, muestra en pantalla el error-->
       <div *ngIf="error" class="text-sm text-red-600">
         {{ error }}
       </div>
 
       <button
         type="submit"
-        class="w-full mt-2 inline-flex justify-center items-center
-               px-4 py-2 rounded-lg text-sm font-medium text-white
-               bg-sky-600 hover:bg-sky-700 focus:outline-none
-               focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+        class="w-full mt-2 inline-flex justify-center items-center px-4 py-2 rounded-lg text-sm font-medium text-white
+         bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
         Login
       </button>
     </form>
@@ -55,15 +52,16 @@
       <h2 class="text-lg font-semibold text-slate-900">
         Welcome, {{ username }} 👋
       </h2>
-      <button
-        type="button"
-        (click)="logout()"
+
+      <!--Aplica método de logout-->
+      <button type="button" (click)="logout()"
         class="text-xs px-3 py-1 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-50"
       >
         Logout
       </button>
     </div>
 
+    <!--Tailwind ba´sico-->
     <table class="min-w-full text-sm border border-slate-200 rounded-lg overflow-hidden">
       <thead class="bg-slate-50">
         <tr>
@@ -74,11 +72,13 @@
         </tr>
       </thead>
       <tbody>
+        <!--dIRECTIVA nGFOR para iterar todos los elementos guardados en el array que obtiene el servicio y mostrarlos en la UI de forma organizada-->
         <tr *ngFor="let task of tasks" class="border-t border-slate-200">
           <td class="px-4 py-2">{{ task.id }}</td>
           <td class="px-4 py-2">{{ task.title }}</td>
           <td class="px-4 py-2">{{ task.description }}</td>
           <td class="px-4 py-2">
+            <!--DIRECTIVA VISUAL CONDICIONAL Ng-class para aplicar un diseño según una condición. Si es Done, verde; si no, rojo-->
             <span
               class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
               [ngClass]="{
