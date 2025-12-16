@@ -60,7 +60,7 @@ public class TaskService {
         Task task = new Task();
         task.setTitle(request.title());
         task.setDescription(request.description());
-        task.setStatus(String.valueOf(request.status() != null ? request.status() : TaskStatus.PENDING));
+        task.setStatus(request.status() != null ? request.status() : TaskStatus.PENDING);
         return toResponse(repository.save(task));
     }
 
@@ -72,7 +72,7 @@ public class TaskService {
 
         task.setTitle(request.title());
         task.setDescription(request.description());
-        task.setStatus(String.valueOf(request.status() != null ? request.status() : TaskStatus.PENDING));
+        task.setStatus(request.status() != null ? request.status() : TaskStatus.PENDING);
         return toResponse(repository.save(task));
     }
 

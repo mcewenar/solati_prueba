@@ -49,7 +49,8 @@ public class Task {
     private String description;
 
     // Estado actual de la tarea. Se almacena como un texto corto (máximo 20 caracteres)
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
-    private String status;
+    private TaskStatus status;
 }
 

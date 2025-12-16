@@ -2,6 +2,7 @@ package solati.backend.demo.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import solati.backend.demo.dto.TaskInput;
 import solati.backend.demo.dto.TaskOutput;
